@@ -1883,11 +1883,7 @@ void mdss_fb_set_backlight(struct msm_fb_data_type *mfd, u32 bkl_lvl)
 		} else {
 			if (mfd->bl_level != bkl_lvl)
 				bl_notify_needed = true;
-#if defined(CONFIG_LGE_DISPLAY_COMMON)
-			pr_info("[Display] backlight sent to panel :%d\n", temp);
-#else
 			pr_debug("backlight sent to panel :%d\n", temp);
-#endif
 			pdata->set_backlight(pdata, temp);
 			mfd->bl_level = bkl_lvl;
 			mfd->bl_level_scaled = temp;
